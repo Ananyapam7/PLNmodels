@@ -123,6 +123,7 @@ PLNfit <- R6Class(
           ## Optimization
           optimizer$zero_grad() # reinitialize gradients
           loss <- private$torch_elbo(data, params, index) # compute current ELBO
+          cat("loss:", loss)
           loss$backward()                   # backward propagation
           optimizer$step()                  # optimization
         }
